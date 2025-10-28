@@ -1,9 +1,5 @@
 <script lang="ts">
-   // 2. Importiamo il mazzo dal nostro file .ts
-   //    (Non serve specificare .ts, SvelteKit lo gestisce)
    import { deck } from "$lib/deck";
-
-   // 3. Importiamo il nostro componente Card
    import Card from "$lib/components/Card.svelte";
 </script>
 
@@ -21,8 +17,7 @@
 </svelte:head>
 
 <main>
-   <h1>Mazzo di Carte SvelteKit</h1>
-   <p>Mostrando tutte le 52 carte.</p>
+   <h1>Riftbound cards</h1>
 
    <div class="card-grid">
       {#each deck as card (card.id)}

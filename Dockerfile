@@ -29,10 +29,10 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 # Copiamo solo i package.json per installare le dipendenze di prod
-COPY --from=builder /app/package.json /app/package-lock.json ./
+COPY --from=builder /app/package*.json ./
 
 # Installiamo SOLO le dipendenze di produzione
-RUN npm ci --omit=dev
+RUN if [ -f package-lock.json ]; then npm ci --omit=dev; else npm install --production; fi
 
 # Copiamo l'app compilata dalla fase "builder"
 COPY --from=builder /app/build ./
