@@ -1,0 +1,15 @@
+# Ignora le dipendenze installate localmente
+node_modules
+
+# Ignora la cartella di build locale (verrà creata DENTRO il container)
+build
+
+# Ignora la cache di SvelteKit
+.svelte-kit
+
+# Ignora i file di log
+*.log
+
+# Ignora i file di ambiente (andranno gestiti da docker-compose)
+.env
+.env.*
