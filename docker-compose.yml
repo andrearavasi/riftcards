@@ -6,6 +6,5 @@ services:
       - "3001:3001"
     restart: unless-stopped
     
-    # Variabili d'ambiente per il server SvelteKit
     environment:
       - PORT=3001
