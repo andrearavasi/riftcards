@@ -21,7 +21,7 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: dev ? '' : '/riftcards',
+			base: '/riftcards',
 		}
 	}
 };
