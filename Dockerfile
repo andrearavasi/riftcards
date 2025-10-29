@@ -38,7 +38,7 @@ RUN npm ci --omit=dev
 COPY --from=builder /app/build ./
 
 # Esponiamo la porta 3000 (quella di default di adapter-node)
-EXPOSE 3000
+EXPOSE 3001
 
 # Il comando per avviare il server Node.js prodotto da SvelteKit
 # Il file di avvio si trova in /app/index.js (copiato da /app/build/index.js)

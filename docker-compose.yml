@@ -1,35 +1,11 @@
-# Specifica la versione di Docker Compose
-version: '3.8'
-
 services:
-  # Dai un nome al tuo servizio (es. "app")
-  svelte-app:
-    # Indica a Compose di costruire l'immagine usando il Dockerfile
-    # nella cartella corrente ('.')
-    build: .
-    # Diamo un nome facile da ricordare al container
-    container_name: mia-app-svelte
-    
-    # Mappa le porte: "PORTA_SUL_SERVER:PORTA_NEL_CONTAINER"
-    # L'app SvelteKit gira sulla 3000 (come da Dockerfile)
-    # Mappiamola sulla 8080 del nostro server Ubuntu
-    # Potrai accedere da http://IP_SERVER:8080
+  app:
+    image: andrearavasi1/riftcards:latest
+    container_name: riftcards_app   
     ports:
-      - "8080:3000"
-      
-    # Policy di riavvio: "unless-stopped"
-    # Riavvia il container automaticamente se va in crash o al riavvio del server,
-    # a meno che non sia stato fermato manualmente.
+      - "3001:3001"
     restart: unless-stopped
     
     # Variabili d'ambiente per il server SvelteKit
     environment:
-      # Obbligatorio: dice al server Node di ascoltare su tutte le interfacce
-      # di rete all'interno del container, non solo localhost.
-      - HOST=0.0.0.0
-      # Specifica la porta (deve corrispondere a quella nel Dockerfile)
-      - PORT=3000
-      # Assicura che l'ambiente sia produzione
-      - NODE_ENV=production
-      # Qui puoi aggiungere altre variabili d'ambiente che la tua app usa
-      # Esempio: - DATABASE_URL=...
+      - PORT=3001
